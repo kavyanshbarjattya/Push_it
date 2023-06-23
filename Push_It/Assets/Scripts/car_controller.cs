@@ -46,4 +46,8 @@ public class car_controller : MonoBehaviour
         Debug.DrawRay(transform.position, transform.forward * 3 ,Color.red);
         MoveForce = Vector3.Lerp(MoveForce.normalized,transform.forward,Traction * Time.deltaTime) * MoveForce.magnitude;
     }
+    private void OnCollisionExit(Collision collision)
+    {
+        Debug.Log("Out");
+    }
 }
