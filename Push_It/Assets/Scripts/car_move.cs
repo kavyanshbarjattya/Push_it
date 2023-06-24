@@ -35,6 +35,7 @@ public class car_move : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Trigger"))
         {
+            Destroy(gameObject, 2f);
             is_looking = false;
         }
     }
