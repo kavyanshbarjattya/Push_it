@@ -7,6 +7,7 @@ public class car_move : MonoBehaviour
     [SerializeField] private VariableJoystick joystick;
     [SerializeField] private Vector3 move;
     [SerializeField] private float forward_speed;
+    [SerializeField] public static bool is_looking = true;
 
     private Rigidbody car_rb;
     void Awake()
@@ -28,6 +29,13 @@ public class car_move : MonoBehaviour
         if (joystick.Direction != Vector2.zero)
         {
             car_rb.AddForce(transform.forward * forward_speed * Time.deltaTime);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Trigger"))
+        {
+            is_looking = false;
         }
     }
 }
