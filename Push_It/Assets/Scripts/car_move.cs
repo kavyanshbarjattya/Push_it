@@ -8,7 +8,7 @@ public class car_move : MonoBehaviour
     [SerializeField] private Vector3 move;
     [SerializeField] private float forward_speed;
     [SerializeField] public static bool is_looking = true;
-
+    [SerializeField] private TrailRenderer drifting_sign;
     private Rigidbody car_rb;
     void Awake()
     {

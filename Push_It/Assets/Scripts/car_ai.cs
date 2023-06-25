@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class car_ai : MonoBehaviour
 {
     [SerializeField] Transform Player;
+    [SerializeField] TrailRenderer drift_sign;
     public int MoveSpeed;
 
     private Rigidbody ai_rb;
@@ -30,6 +31,7 @@ public class car_ai : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Trigger"))
         {
+            drift_sign.enabled = false;
             car_move.is_looking = false;
             Destroy(gameObject, 3f);
         }
