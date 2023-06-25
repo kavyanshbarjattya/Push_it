@@ -478,55 +478,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &662664227
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 662664229}
-  - component: {fileID: 662664228}
-  m_Layer: 0
-  m_Name: color_variations
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &662664228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 662664227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 241e076612a111d4eba651e68c4144f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ground_rend: {fileID: 1920994913}
-  a: {r: 0, g: 0, b: 0, a: 0}
-  b: {r: 0, g: 0, b: 0, a: 0}
-  origin: {r: 0, g: 0, b: 0, a: 0}
-  t: 0
---- !u!4 &662664229
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 662664227}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.8146052, y: -8.651482, z: -5.6448}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,10 +669,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ground_rend: {fileID: 1920994913}
-  a: {r: 1, g: 0, b: 0, a: 0}
-  b: {r: 1, g: 1, b: 1, a: 0}
-  origin: {r: 0, g: 0, b: 0, a: 0}
-  t: 0
+  myColors:
+  - {r: 1, g: 0.7279428, b: 0, a: 0}
+  - {r: 1, g: 0.3086193, b: 0, a: 0}
+  - {r: 0.89722204, g: 1, b: 0, a: 0}
+  - {r: 1, g: 0, b: 0.22343063, a: 0}
+  - {r: 1, g: 0, b: 0.49685907, a: 0}
+  - {r: 0.29624772, g: 1, b: 0, a: 0}
+  - {r: 0, g: 1, b: 0.5249331, a: 0}
+  - {r: 0, g: 0.8795309, b: 1, a: 0}
+  - {r: 0, g: 0.54770017, b: 1, a: 0}
+  - {r: 0.6454544, g: 0, b: 1, a: 0}
+  learpTime: 0.8
 --- !u!1 &1948067598
 GameObject:
   m_ObjectHideFlags: 0

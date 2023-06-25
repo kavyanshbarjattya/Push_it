@@ -8,14 +8,12 @@ public class car_ai : MonoBehaviour
     [SerializeField] Transform Player;
     public int MoveSpeed;
 
-    Rigidbody ai_rb;
+    private Rigidbody ai_rb;
     private void Awake()
     {
         ai_rb = GetComponent<Rigidbody>();
 
     }
-
-
     void Update()
     {
         if (car_move.is_looking)

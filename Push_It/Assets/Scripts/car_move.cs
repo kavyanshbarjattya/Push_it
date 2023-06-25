@@ -22,7 +22,6 @@ public class car_move : MonoBehaviour
         move.y = joystick.Vertical;
         float yTrans = Mathf.Atan2(move.x, move.y) * Mathf.Rad2Deg;
         transform.eulerAngles = new Vector3(0, yTrans - 90, 0);
-
     }
     private void FixedUpdate()
     {

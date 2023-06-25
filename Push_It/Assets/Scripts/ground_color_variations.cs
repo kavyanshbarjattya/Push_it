@@ -1,23 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ground_color_variations : MonoBehaviour
 {
     [SerializeField] private MeshRenderer ground_rend;
-    [SerializeField] private Color a,b,origin;
-    [SerializeField] [Range(0f,1f)] private float t;
+    [SerializeField] private Color[] myColors;
+    [SerializeField][Range(0f, 1f)] private float learpTime;
+
+    int ColorIndex = 0;
+    int len;
+    float t = 0;
 
     private void Start()
     {
-
-        
+        len = myColors.Length;
     }
-    // Update is called once per frame
     void Update()
     {
-        Color custom_color = Color.Lerp(a, b, 1 / t);
-        ground_rend.material.SetColor("_Color", custom_color);
-        origin = Color.Lerp(a,b, 1 / t);    
+        // Putting Color lerp for changing the color of ground material
+        ground_rend.material.color = Color.Lerp(ground_rend.material.color, myColors[ColorIndex], learpTime * Time.deltaTime);
+        t = Mathf.Lerp(t, 1, learpTime * Time.deltaTime);
+        // changing the index number of colors for variation
+        if (t > 0.9f)
+        {
+            t = 0f;
+            ColorIndex++;
+            ColorIndex = (ColorIndex >= myColors.Length) ? 0 : ColorIndex;
+        }
     }
 }

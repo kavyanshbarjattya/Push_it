@@ -7,9 +7,9 @@ public class camera_follow : MonoBehaviour
     [SerializeField] Transform[] car;
     [SerializeField] Vector3 center;
     [SerializeField] private Vector3 offset;
-
     [SerializeField] Transform target;
     [SerializeField] float laziness;
+
     public Vector3 whereCameraShouldBe;
     void Update()
     {
@@ -25,7 +25,6 @@ public class camera_follow : MonoBehaviour
         center /= car.Length;
         target.transform.position = center;
         center = Vector3.zero;
-
     }
     private void FixedUpdate()
     {
@@ -33,7 +32,6 @@ public class camera_follow : MonoBehaviour
         {
             whereCameraShouldBe = target.position + offset;
             transform.position = Vector3.Lerp(transform.position, whereCameraShouldBe, 1/laziness);
-
         }
     }
 }
