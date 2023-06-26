@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class car_move : MonoBehaviour
@@ -8,11 +9,15 @@ public class car_move : MonoBehaviour
     [SerializeField] private Vector3 move;
     [SerializeField] private float forward_speed;
     [SerializeField] public static bool is_looking = true;
-    [SerializeField] private TrailRenderer drifting_sign;
+    public TrailRenderer drifting_sign;
+    [SerializeField] private float waitingTime;
+    public GameObject retry_screen;
+
     private Rigidbody car_rb;
     void Awake()
     {
         car_rb = GetComponent<Rigidbody>();
+        retry_screen.SetActive(false);
     }
     void Update()
     {
@@ -34,9 +39,14 @@ public class car_move : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Trigger"))
         {
-            Destroy(gameObject, 2f);
+            Destroy(gameObject, 2.5f);
+            StartCoroutine(RetryScreen());
             is_looking = false;
         }
     }
+    public IEnumerator RetryScreen()
+    {
+        yield return new WaitForSeconds(waitingTime);
+        retry_screen.SetActive(true);
+    }
 }
-    
