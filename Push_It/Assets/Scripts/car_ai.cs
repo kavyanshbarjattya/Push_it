@@ -1,34 +1,31 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
-using UnityEngine.SceneManagement;
 
 public class car_ai : MonoBehaviour
 {
     [SerializeField] Transform Player;
-    public TrailRenderer drift_sign;
-    public GameObject retry_screen;
+    [SerializeField] private TrailRenderer drift_sign;
+    [SerializeField] private  GameObject retry_screen;
     [SerializeField] private float waiting;
 
     public int MoveSpeed;
-
     private Rigidbody ai_rb;
     private void Awake()
     {
         ai_rb = GetComponent<Rigidbody>();
         retry_screen.SetActive(false);
-
     }
     void Update()
     {
         if (car_move.is_looking)
         {
-            transform.LookAt(Player);
+            // here giving look at function to ai car as it only moves towards the player's car
+            transform.LookAt(Player); 
         }
         Debug.Log(car_move.is_looking);
         if (car_move.is_looking)
         {
+            // here giving movement to ai car
             ai_rb.AddForce(transform.forward * MoveSpeed * Time.deltaTime);
         }
     }
@@ -42,7 +39,6 @@ public class car_ai : MonoBehaviour
             StartCoroutine(RetryScreen());
         }
     }
-    
     IEnumerator RetryScreen()
     {
         yield return new WaitForSeconds(waiting);

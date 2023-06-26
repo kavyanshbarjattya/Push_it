@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +8,6 @@ public class main_menu : MonoBehaviour
     [SerializeField] private float rot_speed;
     [SerializeField] private GameObject main_menu1, main_menu2, about_section;
     [SerializeField] private float wait_time = 0.5f;
-    // Update is called once per frame
 
     private void Start()
     {
@@ -18,7 +16,8 @@ public class main_menu : MonoBehaviour
     }
     void Update()
     {
-        cam.eulerAngles += new Vector3(0, rot_speed *Time.deltaTime,0);
+        // this script will rotate camera in loop as a main menu background
+        cam.eulerAngles += new Vector3(0, rot_speed *Time.deltaTime,0); 
     }
     public void Play_btn()
     {

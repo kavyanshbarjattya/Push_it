@@ -1,18 +1,16 @@
 using UnityEngine;
-
 public class ground_color_variations : MonoBehaviour
 {
     [SerializeField] private MeshRenderer ground_rend;
     [SerializeField] private Color[] myColors;
     [SerializeField][Range(0f, 1f)] private float learpTime;
-
-    int ColorIndex = 0;
-    int len;
-    float t = 0;
-
+    private int ColorIndex = 0;
+    private int len;
+    private float t = 0;
+    //This script is for ground color variation that show random color in ground
     private void Start()
     {
-        len = myColors.Length;
+        len = myColors.Length; // taking the colors length that we put in inspector on a 'len' variable
     }
     void Update()
     {
@@ -23,7 +21,7 @@ public class ground_color_variations : MonoBehaviour
         if (t > 0.9f)
         {
             t = 0f;
-            ColorIndex++;
+            ColorIndex++; // increasing the color index for showing all colors on ground
             ColorIndex = (ColorIndex >= myColors.Length) ? 0 : ColorIndex;
         }
     }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class camera_follow : MonoBehaviour
@@ -13,6 +11,7 @@ public class camera_follow : MonoBehaviour
     public Vector3 whereCameraShouldBe;
     void Update()
     {
+        // here putting our two cars position to a gameobject 'center'
         for (int i = 0; i < car.Length; i++)
         {
             if (car[i] != null)
@@ -22,8 +21,8 @@ public class camera_follow : MonoBehaviour
                 center.z += car[i].position.z + offset.z;
             }
         }
-        center /= car.Length;
-        target.transform.position = center;
+        center /= car.Length; //here putting 'center' gameobject at mid of the cars 
+        target.transform.position = center; 
         center = Vector3.zero;
     }
     private void FixedUpdate()
@@ -31,6 +30,7 @@ public class camera_follow : MonoBehaviour
         if (target != null)
         {
             whereCameraShouldBe = target.position + offset;
+            // here using lerp() as it give value between 0 & 1 for movement of camera
             transform.position = Vector3.Lerp(transform.position, whereCameraShouldBe, 1/laziness);
         }
     }

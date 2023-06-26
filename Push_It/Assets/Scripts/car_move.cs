@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class car_move : MonoBehaviour
@@ -9,9 +7,9 @@ public class car_move : MonoBehaviour
     [SerializeField] private Vector3 move;
     [SerializeField] private float forward_speed;
     [SerializeField] public static bool is_looking = true;
-    public TrailRenderer drifting_sign;
+    [SerializeField] private TrailRenderer drifting_sign;
     [SerializeField] private float waitingTime;
-    public GameObject retry_screen;
+    [SerializeField] private GameObject retry_screen;
 
     private Rigidbody car_rb;
     void Awake()
@@ -21,6 +19,7 @@ public class car_move : MonoBehaviour
     }
     void Update()
     {
+        // this will handle the car move in the respect of joystick's direction
         if (joystick.Direction == Vector2.zero)
             return;
         move.x = joystick.Horizontal;
@@ -30,6 +29,7 @@ public class car_move : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        // this will handle car movement
         if (joystick.Direction != Vector2.zero)
         {
             car_rb.AddForce(transform.forward * forward_speed * Time.deltaTime);
