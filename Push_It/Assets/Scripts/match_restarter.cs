@@ -12,7 +12,8 @@ public class match_restarter : MonoBehaviour
     }
     public void MainMenu()
     {
-        car_move.is_looking = true; //this will start 'AI Chasing' function again as we stopped it in car_move script
+        //this will start 'AI Chasing' function again as we stopped it in car_move script
+        car_move.is_looking = true; 
         SceneManager.LoadScene("main_menu");
     }
     public void AgainPlay()
