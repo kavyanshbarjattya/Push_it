@@ -15,6 +15,10 @@ public class car_ai : MonoBehaviour
         ai_rb = GetComponent<Rigidbody>();
         retry_screen.SetActive(false);
     }
+    private void Start()
+    {
+        Player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
     void Update()
     {
         if (car_move.is_looking)

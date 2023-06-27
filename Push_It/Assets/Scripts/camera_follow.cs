@@ -2,23 +2,27 @@ using UnityEngine;
 
 public class camera_follow : MonoBehaviour
 {
-    [SerializeField] Transform[] car;
+    [SerializeField] car_move[] car;
     [SerializeField] Vector3 center;
     [SerializeField] private Vector3 offset;
     [SerializeField] Transform target;
     [SerializeField] float laziness;
 
     public Vector3 whereCameraShouldBe;
+    private void Start()
+    {
+        car = FindObjectsOfType<car_move>();
+    }
     void Update()
     {
         // here putting our two cars position to a gameobject 'center'
         for (int i = 0; i < car.Length; i++)
         {
-            if (car[i] != null)
+            if (car[i] != null && car[i].isActiveAndEnabled)
             {
-                center.x += car[i].position.x + offset.x;
-                center.y += car[i].position.y + offset.y;
-                center.z += car[i].position.z + offset.z;
+                center.x += car[i].gameObject.transform.position.x + offset.x;
+                center.y += car[i].gameObject.transform.position.y + offset.y;
+                center.z += car[i].gameObject.transform.position.z + offset.z;
             }
         }
         center /= car.Length; //here putting 'center' gameobject at mid of the cars 

@@ -57,5 +57,9 @@ public class main_menu : MonoBehaviour
     {
         SceneManager.LoadScene("local_player");
     }
+    public void Customize()
+    {
+        SceneManager.LoadScene("Car_customize");
+    }
 
 }
